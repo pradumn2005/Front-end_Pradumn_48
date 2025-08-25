@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        img {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            margin-top: 10px;
+        }
+        .social-links {
+            margin-top: 15px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0a66c2; /* LinkedIn blue */
+        }
+        .social-links a.github {
+            color: #333; /* GitHub dark */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>My Portfolio</h1>
+</header>
+
+<main>
+    <section>
+        <figure>
+            <!-- Image placeholder -->
+            <img id="portfolioImage" src="portfolio.jpg" alt="My Photo" width="200">
+            <figcaption>Pradumn Gupta – Web Developer</figcaption>
+        </figure>
+
+        <!-- Upload new portfolio photo -->
+        <input type="file" accept="image/*" onchange="previewImage(event)">
+    </section>
+
+    <section>
+        <h2>About Me</h2>
+        <p>Hello! I am Pradumn, a passionate front-end developer who loves coding and design.</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <ul>
+            <li>B.Tech in Computer Science – GLA University (2024)</li>
+            <li>High School – CKC Academy (2020)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React.js</li>
+            <li>Git & GitHub</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <p>Email: gpradumn8@gmail.com</p>
+        <p>Phone: +91 9125455456</p>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/pradumn-gupta-298961370/" target="_blank"> LinkedIn</a>
+            <a href="https://github.com/pradumn2005/Front-end_Pradumn_48" target="_blank" class="github"> GitHub</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Pradumn Gupta. All rights reserved.</p>
+</footer>
+
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function(){
+            const output = document.getElementById('portfolioImage');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+</body>
+</html>
