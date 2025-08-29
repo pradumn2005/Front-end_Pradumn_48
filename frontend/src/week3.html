@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 Layouts Project</title>
+  <link rel="stylesheet" href="week3.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-container">
+  <aside class="sidebar">
+    <h2 class="sidebar-title">Navigation</h2>
+    <nav>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section id="products" class="content-section">
+      <h1>Featured Products</h1>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Red running shoe">
+          <div class="product-info">
+            <h3>Premium Runner</h3>
+            <p>Experience unparalleled comfort and style with our latest running shoe, designed for peak performance.</p>
+            <button class="buy-button">Buy Now - $120</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Stylish watch">
+          <div class="product-info">
+            <h3>Classic Timepiece</h3>
+            <p>A timeless watch that combines classic design with modern reliability. Perfect for any occasion.</p>
+            <button class="buy-button">Buy Now - $250</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="Headphones">
+          <div class="product-info">
+            <h3>Audio Pro Headphones</h3>
+            <p>Immerse yourself in high-fidelity sound with these noise-cancelling over-ear headphones.</p>
+            <button class="buy-button">Buy Now - $180</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="content-section">
+      <h1>From The Blog</h1>
+      <div class="blog-layout">
+        <article class="blog-post">
+          <h3>Mastering CSS Flexbox</h3>
+          <p>Flexbox is a powerful layout tool in CSS. In this post, we explore the fundamentals of flex containers and flex items to build responsive layouts with ease...</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+        <article class="blog-post">
+          <h3>A Guide to the Box Model</h3>
+          <p>The CSS box model is essential for understanding layout on the web. Learn how margin, border, padding, and content work together to define an element's space...</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+        <article class="blog-post">
+          <h3>Responsive Design Fundamentals</h3>
+          <p>With mobile traffic on the rise, responsive design is no longer optional. This article covers the key concepts, from media queries to fluid grids...</p>
+          <a href="#" class="read-more">Read More</a>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
