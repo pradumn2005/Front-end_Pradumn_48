@@ -1,0 +1,63 @@
+﻿/* Task 6 & 8: Responsive Layout Structure */
+.main-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrap for mobile */
+}
+.sidebar {
+    width: 200px;
+    background-color: #eee;
+    padding: 15px;
+}
+.content-area {
+    flex-grow: 1;
+    padding: 15px;
+}
+/* Media Query for Responsiveness */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on mobile */
+    }
+}
+
+/* Task 7: Product Card (Box Model) */
+.product-card {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 10px; /* Padding inside the card */
+    margin: 20px auto; /* Margin outside the card */
+}
+.product-details {
+    padding: 10px 0;
+}
+.buy-btn {
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Task 8: 3-column Flexbox Blog */
+.blog-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.blog-post {
+    flex: 1 1 30%; /* Flexible basis around 30% for 3 columns */
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+@media (max-width: 900px) {
+    .blog-post {
+        flex: 1 1 45%; /* Two columns on medium screens */
+    }
+}
+@media (max-width: 600px) {
+    .blog-post {
+        flex: 1 1 100%; /* Single column on mobile */
+    }
+}

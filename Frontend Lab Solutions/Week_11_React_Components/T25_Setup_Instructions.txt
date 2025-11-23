@@ -1,0 +1,15 @@
+﻿Task 25: Setup a React project using Vite or Create React App.
+
+INSTRUCTIONS:
+1. Open your terminal (PowerShell, Command Prompt, or Git Bash).
+2. Run the command:
+   npm create vite@latest my-react-app -- --template react
+
+3. Navigate to the new directory:
+   cd my-react-app
+
+4. Install dependencies:
+   npm install
+
+5. Run the development server:
+   npm run dev

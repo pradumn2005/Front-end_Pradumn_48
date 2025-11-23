@@ -1,0 +1,14 @@
+﻿#todo-list button {
+    margin-left: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+#todo-list li {
+    padding: 8px;
+    border-bottom: 1px dotted #ccc;
+    display: flex;
+    align-items: center;
+}

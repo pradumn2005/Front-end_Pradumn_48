@@ -1,0 +1,21 @@
+﻿.faq-question {
+    cursor: pointer;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+#login-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 100;
+}
+#login-form input {
+    margin: 5px 0;
+    width: 95%;
+    padding: 5px;
+}

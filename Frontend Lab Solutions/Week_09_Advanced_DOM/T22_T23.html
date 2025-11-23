@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DOM Apps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Task 22: Feature-Rich To-Do List</h1>
+    <input type="text" id="todo-input" placeholder="Enter new task">
+    <button id="add-task-btn">Add Task</button>
+    <ul id="todo-list">
+        <li data-id="1"><span>Buy Milk</span><div class="actions"><input type="checkbox" onclick="toggleComplete(this)"> <button onclick="moveItemUp(this)">↑</button> <button onclick="moveItemDown(this)">↓</button> <button onclick="deleteItem(this)">Delete</button></div></li>
+        <li data-id="2"><span>Write Code</span><div class="actions"><input type="checkbox" onclick="toggleComplete(this)"> <button onclick="moveItemUp(this)">↑</button> <button onclick="moveItemDown(this)">↓</button> <button onclick="deleteItem(this)">Delete</button></div></li>
+    </ul>
+
+    <hr>
+    <h1>Task 23: Chessboard Generation</h1>
+    <div id="chessboard"></div>
+    <script src="script.js"></script>
+</body>
+</html>

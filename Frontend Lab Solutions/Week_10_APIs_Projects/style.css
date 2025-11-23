@@ -1,0 +1,7 @@
+﻿#results { margin-top: 20px; }
+#university-list { list-style: none; padding: 0; }
+#university-list li { 
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
