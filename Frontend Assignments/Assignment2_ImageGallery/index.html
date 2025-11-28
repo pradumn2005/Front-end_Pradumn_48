@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2: Image Gallery</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #222; color: white; margin: 0; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+
+        /* Responsive Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 10px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background: #333; /* Placeholder color */
+        }
+
+        .gallery img:hover { transform: scale(1.05); }
+
+        /* Modal (Popup) Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Photo Gallery</h1>
+    <p>Click an image to view it in full size.</p>
+
+    <div class="gallery">
+        <img src="https://picsum.photos/id/1015/400/300" alt="River" loading="lazy" onclick="openModal(this)">
+        <img src="https://picsum.photos/id/1016/400/300" alt="Canyon" loading="lazy" onclick="openModal(this)">
+        <img src="https://picsum.photos/id/1018/400/300" alt="Nature" loading="lazy" onclick="openModal(this)">
+        <img src="https://picsum.photos/id/1020/400/300" alt="Bear" loading="lazy" onclick="openModal(this)">
+        <img src="https://picsum.photos/id/1025/400/300" alt="Pug" loading="lazy" onclick="openModal(this)">
+        <img src="https://picsum.photos/id/1024/400/300" alt="Bird" loading="lazy" onclick="openModal(this)">
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+    </div>
+
+    <script>
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("modalImg");
+
+        // Open Modal
+        function openModal(element) {
+            modal.style.display = "flex";
+            // Use the clicked image source for the popup
+            modalImg.src = element.src;
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close if user clicks outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

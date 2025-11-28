@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3: Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; display: flex; justify-content: center; padding: 20px; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 400px; }
+        h2 { text-align: center; color: #333; }
+
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+
+        ul { list-style: none; padding: 0; margin-top: 20px; max-height: 150px; overflow-y: auto; }
+        li { background: #fff; border-bottom: 1px solid #eee; padding: 10px; display: flex; justify-content: space-between; }
+        
+        .chart-container { margin-top: 20px; position: relative; height: 200px; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Expense Tracker</h2>
+    
+    <input type="text" id="desc" placeholder="Expense Name (e.g., Food)">
+    <input type="number" id="amount" placeholder="Amount (e.g., 50)">
+    <button onclick="addExpense()">Add Expense</button>
+
+    <ul id="expenseList"></ul>
+
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script>
+    // 1. Data State
+    let expenses = [];
+    let myChart = null; // Holds the chart instance
+
+    // 2. Add Expense Function
+    function addExpense() {
+        const descInput = document.getElementById('desc');
+        const amountInput = document.getElementById('amount');
+        
+        const desc = descInput.value;
+        const amount = Number(amountInput.value);
+
+        if(desc === '' || amount <= 0) {
+            alert("Please enter a valid name and amount");
+            return;
+        }
+
+        // Add to array using Spread Operator (ES6)
+        expenses = [...expenses, { desc, amount }];
+
+        // Clear inputs
+        descInput.value = '';
+        amountInput.value = '';
+
+        updateUI();
+    }
+
+    // 3. Update UI (List + Chart)
+    function updateUI() {
+        // Update List
+        const list = document.getElementById('expenseList');
+        list.innerHTML = '';
+        expenses.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${item.desc}</span> <span>$${item.amount}</span>`;
+            list.appendChild(li);
+        });
+
+        // Update Chart
+        renderChart();
+    }
+
+    // 4. Render Chart using Chart.js
+    function renderChart() {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        
+        // Prepare Data
+        const labels = expenses.map(e => e.desc);
+        const data = expenses.map(e => e.amount);
+
+        // Destroy old chart if it exists to avoid overlap
+        if(myChart) {
+            myChart.destroy();
+        }
+
+        // Create new Chart
+        myChart = new Chart(ctx, {
+            type: 'doughnut', // Can be 'bar', 'pie', 'line'
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Expenses',
+                    data: data,
+                    backgroundColor: [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
